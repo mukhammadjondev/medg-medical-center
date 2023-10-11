@@ -1,0 +1,6 @@
+export { default as Navbar } from './navbar'
+export { default as Hero } from './hero'
+export { default as Services } from './services'
+export { default as ServiceCard } from './service-card'
+export { default as Blogs } from './blogs'
+export { default as Footer } from './footer'

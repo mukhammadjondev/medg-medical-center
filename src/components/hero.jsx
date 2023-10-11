@@ -55,6 +55,7 @@ const Button = styled.button`
 `
 
 const ImageWrapper = styled.div`
+  display: flex;
   // &:after {
   //   content: '';
   //   display: inline-block;
