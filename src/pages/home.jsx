@@ -1,4 +1,7 @@
 import { Blogs, Hero, Services } from "../components"
+import FAQ from "../components/FAQ"
+import Partners from "../components/partners"
+import TeamMembers from "../components/team-members"
 
 const Home = () => {
   return (
@@ -6,6 +9,9 @@ const Home = () => {
       <Hero />
       <Services />
       <Blogs />
+      <TeamMembers />
+      <Partners />
+      <FAQ />
     </>
   )
 }

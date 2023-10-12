@@ -4,7 +4,7 @@ import ServiceCard from "./service-card"
 
 const Services = () => {
   return (
-    <section style={{backgroundColor: 'var(--text-sec)'}}>
+    <section style={{backgroundColor: 'var(--bg-secondary)'}}>
       <div className='container'>
         <h2 className="title">Услуги</h2>
         <ServicesWrapper>

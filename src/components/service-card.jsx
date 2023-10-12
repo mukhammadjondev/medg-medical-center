@@ -15,7 +15,11 @@ const Card = styled.div`
   width: 32%;
   height: 244px;
   background-color: #fff;
-  border-radius:
+  cursor: pointer;
+  transition: all ease .5s;
+  &:hover{
+    transform: scale3d(1.05,1.05,1.05);
+  }
 `
 
 const CardTitle = styled.h3`
