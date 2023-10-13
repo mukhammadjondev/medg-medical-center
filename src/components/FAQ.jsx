@@ -46,7 +46,7 @@ const IconBox = styled.div`
 `
 
 const Email = styled.p`
-  padding-bottom: 64px;
+  padding-bottom: 119px;
 `
 
 export default FAQ
