@@ -5,23 +5,29 @@ import { phone1, phone2 } from '../assets'
 const Tips = () => {
   return (
     <section>
-      <div className="container">
-        <h2 className="title">Возьмите под контроль свое здоровье</h2>
-        <Container>
-          <Box>
-            {tips.map(item => (
-              <div>
-                <Title>{item.title}</Title>
-                <Description>{item.description}</Description>
-              </div>
-            ))}
-          </Box>
-          <ImageWrapper>
+      <Container className="container">
+        <div style={{width: '68%'}}>
+          <h2 className="title">Возьмите под контроль свое здоровье</h2>
+          <Container>
+            <Box>
+              {tips.map(item => (
+                <div>
+                  <Title>{item.title}</Title>
+                  <Description>{item.description}</Description>
+                </div>
+              ))}
+            </Box>
+          </Container>
+        </div>
+        <ImageWrapper>
+          <ImageBox1>
             <img src={phone1} alt="phone" />
+          </ImageBox1>
+          <ImageBox2>
             <img src={phone2} alt="phone" />
-          </ImageWrapper>
-        </Container>
-      </div>
+          </ImageBox2>
+        </ImageWrapper>
+      </Container>
     </section>
   )
 }
@@ -49,7 +55,19 @@ const Description = styled.p`
 const ImageWrapper = styled.div`
   display: flex;
   position: relative;
-  top: -220px;
+  top: -55px;
+`
+
+const ImageBox1 = styled.div`
+  width: 268px;
+  position: relative;
+  z-index: 10;
+`
+
+const ImageBox2 = styled.div`
+  position: absolute;
+  right: -116px;
+  top: 20px;
 `
 
 export default Tips
