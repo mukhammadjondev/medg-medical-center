@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="none"><path stroke="#402C36" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.808" d="m20.925 13.175-5.683 5.683-5.683-5.683"/></svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="31"
+  height="31"
+  fill="none"
+>
+  <path
+    stroke="currentcolor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.808"
+    d="m20.925 13.175-5.683 5.683-5.683-5.683"
+  />
+</svg>

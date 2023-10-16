@@ -9,6 +9,7 @@
 :root {
   font-family: Inter, Arial, sans-serif;
   line-height: 1.3;
+  font-size: 15px;
   font-weight: 400;
   color: var(--text-black);
 

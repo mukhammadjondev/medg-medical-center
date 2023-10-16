@@ -21,11 +21,11 @@ const Footer = () => {
         <hr style={{backgroundColor: '#bcbcbc', marginBlock: '24px'}} />
         <Wrapper>
           <Text>© Все права защищены 2023. Частный медицинский центр MedG</Text>
-          <div style={{display: 'flex', gap: '24px'}}>
+          <SocialMedias>
             <img src={instagram} alt="instagram" />
             <img src={telegram} alt="telegram" />
             <img src={twitter} alt="twitter" />
-          </div>
+          </SocialMedias>
         </Wrapper>
       </Container>
     </footer>
@@ -58,6 +58,18 @@ const Contact = styled.p`
 const Text = styled.p`
   font-size: 15px;
   color: var(--text-sec)
+`
+
+const SocialMedias = styled.div`
+  display: flex;
+  gap: 24px;
+
+  img {
+    cursor: pointer;
+    &:hover {
+      fill: var(--main)
+    }
+  }
 `
 
 export default Footer

@@ -50,8 +50,14 @@ const Button = styled.button`
   background-color: var(--main);
   color: #FFF;
   padding: 14px 18px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 14px;
+
+  &:hover {
+    background-color: #fff;
+    color: var(--main);
+    border: 1px solid var(--main)
+  }
 `
 
 const ImageWrapper = styled.div`
