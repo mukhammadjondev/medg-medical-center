@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom"
 import { styled } from "styled-components"
 
 const MainBlogCard = ({blog}) => {
   return (
     <div style={{flex: 1, cursor: 'pointer'}}>
-      <Image src={blog.img} />
-      <Title>{blog.title}</Title>
-      <Subtitle>{blog.subtitle}</Subtitle>
+      <Link to={`/blog-detailed`} style={{textDecoration: 'none', color: 'inherit'}}>
+        <Image src={blog.img} />
+        <Title>{blog.title}</Title>
+        <Subtitle>{blog.subtitle}</Subtitle>
+      </Link>
     </div>
   )
 }

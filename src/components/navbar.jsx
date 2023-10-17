@@ -2,13 +2,14 @@ import { styled } from "styled-components"
 import logo from '../assets/logo.png'
 import ruFlag from '../assets/ru.png'
 import chevronDown from '../assets/icons/chevron-down.svg'
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
     <Container>
-      <Box>
+      <Link to={'/'}>
         <Image src={logo} alt='logo' />
-      </Box>
+      </Link>
       <Box>
         <PhoneNum>
           +998 (97) 123-45-67

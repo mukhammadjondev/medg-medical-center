@@ -11,7 +11,7 @@ const Blogs = () => {
         <h2 className="title">Блог о здоровье</h2>
         <BlogsContainer>
           {blogs.map(blog => (
-            blog.id === 1 && <MainBlogCard blog={blog} />
+            blog.id === 1 && <MainBlogCard blog={blog} key={blog.id} />
           ))}
           <BlogCardWrapper>
             {filteredBlog.map(blog => (

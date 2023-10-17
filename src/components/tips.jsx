@@ -11,7 +11,7 @@ const Tips = () => {
           <Container>
             <Box>
               {tips.map(item => (
-                <div>
+                <div key={item.id}>
                   <Title>{item.title}</Title>
                   <Description>{item.description}</Description>
                 </div>

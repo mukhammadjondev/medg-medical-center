@@ -7,7 +7,7 @@ const Partners = () => {
       <h2 className="title">Наше партнеры</h2>
       <ImageContainer>
         {partners.map(partner => (
-          <img src={partner.img} alt="partner" style={{width: '100%'}} />
+          <img src={partner.img} alt="partner" style={{width: '100%'}} key={partner.id} />
         ))}
       </ImageContainer>
     </section>

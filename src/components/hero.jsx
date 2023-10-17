@@ -10,6 +10,7 @@ const Hero = () => {
           <Subtitle>Педиатра, теравевта, невролога, аллерголога, гастроэнтеролога и других высококласных врачей</Subtitle>
           <Button>Записаться онлайн</Button>
         </Box>
+        <BlurFon />
         <ImageWrapper>
           <HeroImage src={heroImg} alt='hero image' />
         </ImageWrapper>
@@ -27,7 +28,7 @@ const ContainerHero = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  postion:relative;
+  position:relative;
 `
 
 const Box = styled.div`
@@ -56,27 +57,30 @@ const Button = styled.button`
   &:hover {
     background-color: #fff;
     color: var(--main);
-    border: 1px solid var(--main)
+    border: 1px solid var(--main);
+    cursor: pointer;
   }
 `
 
 const ImageWrapper = styled.div`
   display: flex;
-  // &:after {
-  //   content: '';
-  //   display: inline-block;
-  //   position: absolute;
-  //   width: 574px;
-  //   height: 535px;
-  //   border-radius: 50%;
-  //   background: #FFF;
-  //   filter: blur(40px);
-  // }
+  z-index: 100;
 `
 
 const HeroImage = styled.img`
-  z-index: 100;
   margin-top: 64px;
+`
+
+const BlurFon = styled.div`
+  display: inline-block;
+  position: absolute;
+  width: 550px;
+  height: 535px;
+  border-radius: 50%;
+  background-color: #fff;
+  filter: blur(40px);
+  right: -10px;
+  top: 70px;
 `
 
 export default Hero
