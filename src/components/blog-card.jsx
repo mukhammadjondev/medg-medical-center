@@ -17,7 +17,6 @@ const BlogCard = ({blog}) => {
 
 const Container = styled.div`
   display: flex;
-  margin-left: 20px;
   cursor: pointer;
 `
 

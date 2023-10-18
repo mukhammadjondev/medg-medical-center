@@ -25,7 +25,9 @@ const Blogs = () => {
 }
 
 const BlogsContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
   margin-bottom: 64px;
 `
 
