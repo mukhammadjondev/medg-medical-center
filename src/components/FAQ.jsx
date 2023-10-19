@@ -43,7 +43,7 @@ const Item = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--bg-white);
+  background-color: var(--bg-primary);
   border-radius: 12px;
   overflow: hidden;
 `

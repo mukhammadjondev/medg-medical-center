@@ -4,34 +4,38 @@ import ruFlag from '../assets/ru.png'
 import chevronDown from '../assets/icons/chevron-down.svg'
 import { Link } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ({toggleMode}) => {
   return (
-    <Container>
-      <Link to={'/'}>
-        <Image src={logo} alt='logo' />
-      </Link>
-      <Box>
-        <PhoneNum>
-          +998 (97) 123-45-67
-          <small style={{color: '#bcbcbc'}}>контактный центр</small>
-        </PhoneNum>
-        <LanguageBtn>
-          <img src={ruFlag} alt="Russia flag" style={{marginRight: '8px'}} />
-          <small style={{color: 'var(--text-black)', fontWeight: 'bold'}}>Русский</small>
-          <img src={chevronDown} alt="chevron down" />
-        </LanguageBtn>
-        <ModalBtn>Обратный звонок</ModalBtn>
-      </Box>
-    </Container>
+    <NavbarBg>
+      <Container className="container">
+        <Link to={'/'}>
+          <Image src={logo} alt='logo' />
+        </Link>
+        <Box>
+          <PhoneNum>
+            +998 (97) 123-45-67
+            <small style={{color: '#bcbcbc'}}>контактный центр</small>
+          </PhoneNum>
+          <ModeBtn onClick={toggleMode}>Mode</ModeBtn>
+          <LanguageBtn>
+            <img src={ruFlag} alt="Russia flag" style={{marginRight: '8px'}} />
+            <small style={{color: 'var(--text-black)', fontWeight: 'bold'}}>Русский</small>
+            <img src={chevronDown} alt="chevron down" />
+          </LanguageBtn>
+          <ModalBtn>Обратный звонок</ModalBtn>
+        </Box>
+      </Container>
+    </NavbarBg>
   )
 }
 
+const NavbarBg = styled.div`
+  background-color: ${({theme}) => theme.bgNavbar ? theme.bgNavbar : '#FFF'};
+  border-bottom: 1px solid #E8E8E8;
+`
+
 const Container = styled.div`
-  max-width: 1200px;
-  width: 100%;
   height: 80px;
-  margin: 0 auto;
-  padding: 0 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,6 +63,11 @@ const PhoneNum = styled.p`
   align-items: flex-end;
 `
 
+const ModeBtn = styled.button`
+  margin-right: 12px;
+  padding: 10px 15px;
+`
+
 const LanguageBtn = styled.div`
   padding: 10px 14px;
   margin-right: 12px;
@@ -75,7 +84,7 @@ const ModalBtn = styled.button`
   padding: 14px 18px;
   border-radius: 14px;
   border: none;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-hero);
   cursor: pointer;
 `
 

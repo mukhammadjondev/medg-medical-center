@@ -20,7 +20,7 @@ const Hero = () => {
 }
 
 const HeroMain = styled.main`
-  background-color: var(--bg-primary);
+  background-color: ${({theme}) => theme.bgHero};
   width: 100%;
 `
 
@@ -37,6 +37,7 @@ const Box = styled.div`
 `
 
 const Title = styled.h1`
+  color: ${({theme}) => theme.textPrimary};
   font-size: 2.7rem;
   font-weight: 700;
   margin-bottom: 2rem;
@@ -77,7 +78,7 @@ const BlurFon = styled.div`
   width: 550px;
   height: 535px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: ${({theme}) => theme.blurFon ? theme.blurFon : '#FFF'};
   filter: blur(40px);
   right: -10px;
   top: 70px;

@@ -6,7 +6,7 @@ import { blogs } from "../constants/blogs"
 const BlogDetailed = () => {
   const filteredBlog = blogs.filter(blog => blog.id > 1)
   return (
-    <section style={{borderTop: '1px solid #E8E8E8'}}>
+    <section>
       <div className="container">
         <Routes>Home/Blog-Detailed</Routes>
         {blogs.map(blog => (
