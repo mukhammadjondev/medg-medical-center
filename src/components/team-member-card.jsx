@@ -19,10 +19,11 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
-  background-color: #fff;
+  background-color: ${({theme}) => theme.darkMode ? theme.bgCard : '#fff'};
+  color: ${({theme}) => theme.textPrimary};
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px;
-    background-color: #f8faff;
+    background-color: ${({theme}) => theme.darkMode ? '#3c3c3c' : '#f8faff'};
   }
   &:hover img {
     transform: scale(1.1);

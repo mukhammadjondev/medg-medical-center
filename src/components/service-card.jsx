@@ -14,7 +14,8 @@ const Card = styled.div`
   position: relative;
   width: 32%;
   height: 244px;
-  background-color: #fff;
+  background-color: ${({theme}) => theme.darkMode ? theme.bgCard : '#fff'};
+  border-radius: 12px;
   cursor: pointer;
   transition: all ease .5s;
   &:hover{
@@ -24,11 +25,12 @@ const Card = styled.div`
 
 const CardTitle = styled.h3`
   margin: 50px 25px 12px;
+  color: ${({theme}) => theme.textPrimary};
 `
 
 const CardSubtitle = styled.p`
   margin: 0 25px 30px;
-  color: var(--text-sec)
+  color: ${({theme}) => theme.textSecondary};
 `
 
 const Image = styled.img`

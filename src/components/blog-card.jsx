@@ -3,7 +3,7 @@ import { styled } from "styled-components"
 
 const BlogCard = ({blog}) => {
   return (
-    <Link to={`/blog-detailed`} style={{textDecoration: 'none', color: 'inherit'}}>
+    <Link to={`/blog-detailed`} style={{textDecoration: 'none'}}>
       <Container>
         <Image src={blog.img} />
         <div>
@@ -29,11 +29,12 @@ const Title = styled.h3`
   font-size: 19px;
   font-weight: 600;
   margin-bottom: 8px;
+  color: ${({theme}) => theme.textPrimary};
 `
 
 const Subtitle = styled.p`
   font-size: 13px;
-  color: var(--text-sec);
+  color: ${({theme}) => theme.textSecondary};
 `
 
 export default BlogCard

@@ -4,18 +4,26 @@ import TeamMemberCard from "./team-member-card"
 
 const TeamMembers = () => {
   return (
-    <section style={{backgroundColor: 'var(--bg-secondary)'}}>
+    <TeamMembersBg>
       <Container className="container">
-        <h2 className="title">Наша команда</h2>
+        <Title className="title">Наша команда</Title>
         <CardWrapper>
           {teamMembers.map(member => (
             <TeamMemberCard member={member} key={member.id} />
           ))}
         </CardWrapper>
       </Container>
-    </section>
+    </TeamMembersBg>
   )
 }
+
+const TeamMembersBg = styled.section`
+  background-color: ${({theme}) => theme.bgSecondary};
+`
+
+const Title = styled.h2`
+  color: ${({theme}) => theme.textPrimary};
+`
 
 const Container = styled.div`
   display: flex;

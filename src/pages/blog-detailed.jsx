@@ -6,33 +6,45 @@ import { blogs } from "../constants/blogs"
 const BlogDetailed = () => {
   const filteredBlog = blogs.filter(blog => blog.id > 1)
   return (
-    <section>
+    <DetailedBg>
       <div className="container">
         <Routes>Home/Blog-Detailed</Routes>
         {blogs.map(blog => (
           blog.id === 1 && <MainBlogCard blog={blog} key={blog.id} imageHeight='480px' titleSize='31px' content={true} />
         ))}
       </div>
-      <div style={{backgroundColor: 'var(--bg-secondary)'}}>
+      <CardWrapperBg>
         <div className="container">
-          <h2 className="title">Другие статьи</h2>
+          <Title className="title">Другие статьи</Title>
           <BlogCardWrapper>
             {filteredBlog.map(blog => (
               <BlogCard blog={blog} key={blog.id} />
             ))}
           </BlogCardWrapper>
         </div>
-      </div>
-    </section>
+      </CardWrapperBg>
+    </DetailedBg>
   )
 }
+
+const DetailedBg = styled.section`
+  background-color: ${({theme}) => theme.bgPrimary};
+`
 
 const Routes = styled.p`
   font-size: 13px;
   font-weight: 600;
+  color: ${({theme}) => theme.textSecondary};
   text-transform: uppercase;
-  color: var(--text-sec);
-  margin-block: 40px 20px;
+  padding-block: 40px 20px;
+`
+
+const Title = styled.h2`
+  color: ${({theme}) => theme.textPrimary};
+`
+
+const CardWrapperBg = styled.div`
+  background-color: ${({theme}) => theme.bgSecondary};
 `
 
 const BlogCardWrapper = styled.div`

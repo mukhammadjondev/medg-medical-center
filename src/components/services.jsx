@@ -4,18 +4,26 @@ import ServiceCard from "./service-card"
 
 const Services = () => {
   return (
-    <section style={{backgroundColor: 'var(--bg-secondary)'}}>
+    <ServicesBg>
       <div className='container'>
-        <h2 className="title">Услуги</h2>
+        <Title className="title">Услуги</Title>
         <ServicesWrapper>
           {services.map(card => (
             <ServiceCard card={card} key={card.id} />
           ))}
         </ServicesWrapper>
       </div>
-    </section>
+    </ServicesBg>
   )
 }
+
+const ServicesBg = styled.section`
+  background-color: ${({theme}) => theme.bgSecondary};
+`
+
+const Title = styled.h2`
+  color: ${({theme}) => theme.textPrimary};
+`
 
 const ServicesWrapper = styled.div`
   display: flex;

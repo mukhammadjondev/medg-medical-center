@@ -3,8 +3,9 @@ import logo from '../assets/logo.png'
 import ruFlag from '../assets/ru.png'
 import chevronDown from '../assets/icons/chevron-down.svg'
 import { Link } from "react-router-dom"
+import { darkMode, lightMode } from "../assets"
 
-const Navbar = ({toggleMode}) => {
+const Navbar = ({toggleMode, theme}) => {
   return (
     <NavbarBg>
       <Container className="container">
@@ -16,10 +17,12 @@ const Navbar = ({toggleMode}) => {
             +998 (97) 123-45-67
             <small style={{color: '#bcbcbc'}}>контактный центр</small>
           </PhoneNum>
-          <ModeBtn onClick={toggleMode}>Mode</ModeBtn>
+          <ModeBtn onClick={toggleMode}>
+            <img src={theme === 'light' ? darkMode : lightMode} alt="mode" />
+          </ModeBtn>
           <LanguageBtn>
             <img src={ruFlag} alt="Russia flag" style={{marginRight: '8px'}} />
-            <small style={{color: 'var(--text-black)', fontWeight: 'bold'}}>Русский</small>
+            <small style={{marginRight: '4px'}}>Русский</small>
             <img src={chevronDown} alt="chevron down" />
           </LanguageBtn>
           <ModalBtn>Обратный звонок</ModalBtn>
@@ -30,7 +33,7 @@ const Navbar = ({toggleMode}) => {
 }
 
 const NavbarBg = styled.div`
-  background-color: ${({theme}) => theme.bgNavbar ? theme.bgNavbar : '#FFF'};
+  background-color: ${({theme}) => theme.darkMode && theme.bgSecondary};
   border-bottom: 1px solid #E8E8E8;
 `
 
@@ -56,35 +59,43 @@ const PhoneNum = styled.p`
   font-size: 1rem;
   font-weight: 600;
   line-height: normal;
-  color: var(--main);
-  margin-right: 36px;
+  color: ${({theme}) => theme.darkMode ? theme.textPrimary : theme.main};
+  margin-right: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 `
 
-const ModeBtn = styled.button`
+const ModeBtn = styled.div`
+  display: flex;
+  align-self: center;
   margin-right: 12px;
-  padding: 10px 15px;
+  width: 40px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: ${({theme}) => theme.darkMode ? theme.bgCard : theme.bgSecondary};
+  cursor: pointer;
 `
 
 const LanguageBtn = styled.div`
   padding: 10px 14px;
   margin-right: 12px;
   border-radius: 14px;
-  background-color: #F8F8F8;
+  background-color: ${({theme}) => theme.darkMode ? theme.bgPrimary : theme.bgSecondary};
+  color: ${({theme}) => theme.darkMode ? theme.textPrimary : '#273140'};
+  font-weight: bold;
   display: flex;
   align-items: center;
   cursor: pointer;
 `
 
 const ModalBtn = styled.button`
-  color: var(--main);
+  color: ${({theme}) => theme.darkMode ? theme.textPrimary : theme.main};
   font-weight: bold;
   padding: 14px 18px;
   border-radius: 14px;
   border: none;
-  background-color: var(--bg-hero);
+  background-color: ${({theme}) => theme.darkMode ? theme.bgPrimary : theme.bgSecondary};
   cursor: pointer;
 `
 

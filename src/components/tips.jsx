@@ -4,10 +4,10 @@ import { phone1, phone2 } from '../assets'
 
 const Tips = () => {
   return (
-    <section>
+    <TipsBg>
       <Container className="container">
         <div style={{width: '68%'}}>
-          <h2 className="title">Возьмите под контроль свое здоровье</h2>
+          <TitleMain className="title">Возьмите под контроль свое здоровье</TitleMain>
           <Container>
             <Box>
               {tips.map(item => (
@@ -28,9 +28,17 @@ const Tips = () => {
           </ImageBox2>
         </ImageWrapper>
       </Container>
-    </section>
+    </TipsBg>
   )
 }
+
+const TipsBg = styled.section`
+  background-color: ${({theme}) => theme.darkMode ? '#252424' : theme.bgPrimary};
+`
+
+const TitleMain = styled.h2`
+  color: ${({theme}) => theme.textPrimary};
+`
 
 const Container = styled.div`
   display: flex;
@@ -44,11 +52,12 @@ const Box = styled.div`
 const Title = styled.h3`
   font-size: 17px;
   font-weight: 700;
+  color: ${({theme}) => theme.textPrimary};
 `
 
 const Description = styled.p`
   font-size: 15px;
-  color: var(--text-sec);
+  color: ${({theme}) => theme.textSecondary};
   margin-bottom: 16px;
 `
 

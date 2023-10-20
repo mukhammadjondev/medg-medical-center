@@ -8,9 +8,9 @@ const FAQ = () => {
   const toggle = (id) => setClicked((prevClicked) => (prevClicked === id ? null : id))
 
   return (
-    <section style={{ backgroundColor: 'var(--bg-secondary)' }}>
+    <FAQCon>
       <div className="container">
-        <h2 className="title">FAQ</h2>
+        <Title className="title">FAQ</Title>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {faq.map((item) => (
             <Item key={item.id} onClick={() => toggle(item.id)}>
@@ -31,9 +31,17 @@ const FAQ = () => {
           Не смогли найти то, что искали? Напишите нам на <span>medghelp@gmail.com</span>
         </Email>
       </div>
-    </section>
+    </FAQCon>
   )
 }
+
+const FAQCon = styled.section`
+  background-color: ${({theme}) => theme.bgSecondary};
+`
+
+const Title = styled.h2`
+  color: ${({theme}) => theme.textPrimary};
+`
 
 const Item = styled.div`
   position: relative;
@@ -43,7 +51,7 @@ const Item = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--bg-primary);
+  background-color: ${({theme}) => theme.darkMode ? theme.bgCard : theme.bgPrimary};
   border-radius: 12px;
   overflow: hidden;
 `
@@ -56,7 +64,7 @@ const ItemBox = styled.div`
 `
 
 const Question = styled.p`
-  color: ${({ $clicked }) => ($clicked ? 'var(--main)' : '#000')};
+  color: ${({ $clicked, theme }) => ($clicked ? theme.main : theme.textPrimary)};
   font-size: 17px;
   font-weight: 500;
   transition: all ease 0.3s;
@@ -66,22 +74,18 @@ const IconBox = styled.div`
   width: 31px;
   height: 31px;
   border-radius: 50%;
-  background-color: ${({ $clicked }) => ($clicked ? '#fdbfed' : '#F6F4F5')};
+  background-color: ${({ $clicked, theme }) => ($clicked ? '#fdbfed' : theme.darkMode ? '#585858' : '#F6F4F5')};
   transition: all ease 0.5s;
 
   img {
     transform: rotate(${({ $clicked }) => ($clicked ? '-180' : '0')}deg);
     transition: transform ease 0.5s;
-
-    svg {
-      color: var(--main);
-    }
   }
 `
 
 const Dropdown = styled.div`
-  background-color: #fff;
-  color: #7d7d7d;
+  background-color: ${({theme}) => theme.darkMode ? theme.bgCard : theme.bgPrimary};
+  color: ${({theme}) => theme.darkMode ? theme.textPrimary : '#7d7d7d'};
   padding-right: 35px;
   margin-top: ${({ $clicked }) => ($clicked ? '10px' : '0')};
   overflow: hidden;

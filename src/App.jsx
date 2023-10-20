@@ -18,7 +18,7 @@ function App() {
   return (
     <ThemeProvider theme={localStorage.getItem('mode') === 'dark' ? darkTheme : lightTheme}>
       <Router>
-        <Navbar toggleMode={toggleMode} />
+        <Navbar toggleMode={toggleMode} theme={theme} />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/blog-detailed" element={<BlogDetailed />} />

@@ -6,9 +6,9 @@ import MainBlogCard from "./main-blog-card"
 const Blogs = () => {
   const filteredBlog = blogs.filter(blog => blog.id > 1)
   return (
-    <section>
+    <BlogsBg>
       <div className="container">
-        <h2 className="title">Блог о здоровье</h2>
+        <Title className="title">Блог о здоровье</Title>
         <BlogsContainer>
           {blogs.map(blog => (
             blog.id === 1 && <MainBlogCard blog={blog} key={blog.id} />
@@ -20,15 +20,23 @@ const Blogs = () => {
           </BlogCardWrapper>
         </BlogsContainer>
       </div>
-    </section>
+    </BlogsBg>
   )
 }
+
+const BlogsBg = styled.section`
+  background-color: ${({theme}) => theme.bgPrimary};
+`
+
+const Title = styled.h2`
+  color: ${({theme}) => theme.textPrimary};
+`
 
 const BlogsContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   gap: 20px;
-  margin-bottom: 64px;
+  padding-bottom: 64px;
 `
 
 const BlogCardWrapper = styled.div`

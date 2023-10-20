@@ -3,16 +3,26 @@ import { partners } from "../constants/partners"
 
 const Partners = () => {
   return (
-    <section className="container">
-      <h2 className="title">Наше партнеры</h2>
-      <ImageContainer>
-        {partners.map(partner => (
-          <img src={partner.img} alt="partner" style={{width: '100%'}} key={partner.id} />
-        ))}
-      </ImageContainer>
-    </section>
+    <PartnersCon>
+      <div className="container">
+        <Title className="title">Наше партнеры</Title>
+        <ImageContainer>
+          {partners.map(partner => (
+            <img src={partner.img} alt="partner" style={{width: '100%'}} key={partner.id} />
+          ))}
+        </ImageContainer>
+      </div>
+    </PartnersCon>
   )
 }
+
+const PartnersCon = styled.section`
+  background-color: ${({theme}) => theme.bgPrimary};
+`
+
+const Title = styled.h2`
+  color: ${({theme}) => theme.textPrimary};
+`
 
 const ImageContainer = styled.div`
   display: inline-flex;

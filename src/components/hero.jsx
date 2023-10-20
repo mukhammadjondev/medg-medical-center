@@ -20,7 +20,7 @@ const Hero = () => {
 }
 
 const HeroMain = styled.main`
-  background-color: ${({theme}) => theme.bgHero};
+  background-color: ${({theme}) => theme.darkMode ? theme.bgPrimary : theme.bgHero};
   width: 100%;
 `
 
@@ -44,21 +44,21 @@ const Title = styled.h1`
 `
 
 const Subtitle = styled.p`
-  color: var(--text-sec);
+  color: ${({theme}) => theme.textSecondary};
   margin-bottom: 1.5rem;
 `
 
 const Button = styled.button`
-  background-color: var(--main);
+  background-color: ${({theme}) => theme.main};
   color: #FFF;
   padding: 14px 18px;
   border: 1px solid transparent;
   border-radius: 14px;
 
   &:hover {
-    background-color: #fff;
-    color: var(--main);
-    border: 1px solid var(--main);
+    background-color: ${({theme}) => theme.darkMode ? theme.bgSecondary : '#fff'};
+    color: ${({theme}) => theme.main};
+    border: 1px solid ${({theme}) => theme.main};
     cursor: pointer;
   }
 `
