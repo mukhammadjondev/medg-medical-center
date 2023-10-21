@@ -1,5 +1,6 @@
 import { styled } from "styled-components"
 import heroImg from '../assets/images/hero-img.png'
+import Modal from "./modal"
 
 const Hero = () => {
   return (
@@ -15,6 +16,7 @@ const Hero = () => {
           <HeroImage src={heroImg} alt='hero image' />
         </ImageWrapper>
       </ContainerHero>
+      <Modal />
     </HeroMain>
   )
 }
