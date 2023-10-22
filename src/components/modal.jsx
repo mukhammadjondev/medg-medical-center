@@ -1,7 +1,25 @@
+import { useState } from "react";
 import { styled } from "styled-components"
 import { close } from "../assets"
 
 const Modal = () => {
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const handleInput = e => {
+    const formattedPhoneNum = formatPhoneNum(e.target.value)
+    setPhoneNumber(formattedPhoneNum)
+  }
+
+  function formatPhoneNum(value) {
+    if(!value) return value
+    const phoneNum = value.replace(/[^\d]/g, '')
+    const phoneNumLength = phoneNum.length
+    if(phoneNumLength < 4) return phoneNum
+    if(phoneNumLength < 7) {
+      return `(${phoneNum.slice(0, 3)}) ${phoneNum.slice(3)}`
+    }
+    return `(${phoneNum.slice(0, 3)}) ${phoneNum.slice(3, 6)}-${phoneNum.slice(6, 10)}`
+  }
+
   return (
     <ModalBg>
       <Container>
@@ -15,8 +33,9 @@ const Modal = () => {
             <Input type="text" id="name" placeholder="Укажите ФИО" />
           </BoxInput>
           <BoxInput>
-            <Label htmlFor="number">Телефон</Label>
-            <Input type="number" id="number" value='+998' placeholder="(00) 000-00-00" />
+            <Label htmlFor="phone">Телефон</Label>
+            <Input type="text" id="phone"  placeholder='(90) 123-45-67' value={phoneNumber} onChange={e => handleInput(e)} />
+            <CountCode>+998</CountCode>
           </BoxInput>
           <Box>
             <BoxInput>
@@ -56,9 +75,10 @@ const Container = styled.div`
 `
 
 const Box = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
+  gap: 12px;
   margin-bottom: 30px;
 `
 
@@ -95,6 +115,7 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
+  position: relative;
   padding: 14px 16px;
   border: none;
   border-radius: 14px;
@@ -104,6 +125,12 @@ const Input = styled.input`
     color: #D9D5D5;
     font-size: 15px;
   }
+`
+
+const CountCode = styled.span`
+  position: absolute;
+  top: 14px;
+  left: 16px;
 `
 
 const Button = styled.button`
