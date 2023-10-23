@@ -4,8 +4,12 @@ import ruFlag from '../assets/ru.png'
 import chevronDown from '../assets/icons/chevron-down.svg'
 import { Link } from "react-router-dom"
 import { darkMode, lightMode } from "../assets"
+import Modal from "./modal"
+import { useState } from "react"
 
-const Navbar = ({toggleMode, theme}) => {
+const Navbar = ({toggleMode}) => {
+  const [isModal, setIsModal] = useState(false)
+
   return (
     <NavbarBg>
       <Container className="container">
@@ -18,16 +22,17 @@ const Navbar = ({toggleMode, theme}) => {
             <small style={{color: '#bcbcbc'}}>контактный центр</small>
           </PhoneNum>
           <ModeBtn onClick={toggleMode}>
-            <img src={theme === 'light' ? darkMode : lightMode} alt="mode" />
+            <img src={localStorage.getItem('mode') === 'light' ? darkMode : lightMode} alt="mode" />
           </ModeBtn>
           <LanguageBtn>
             <img src={ruFlag} alt="Russia flag" style={{marginRight: '8px'}} />
             <small style={{marginRight: '4px'}}>Русский</small>
             <img src={chevronDown} alt="chevron down" />
           </LanguageBtn>
-          <ModalBtn>Обратный звонок</ModalBtn>
+          <ModalBtn onClick={() => setIsModal(true)}>Обратный звонок</ModalBtn>
         </Box>
       </Container>
+      {isModal && <Modal setIsModal={setIsModal} />}
     </NavbarBg>
   )
 }

@@ -1,22 +1,25 @@
+import { useState } from "react"
 import { styled } from "styled-components"
 import heroImg from '../assets/images/hero-img.png'
 import Modal from "./modal"
 
 const Hero = () => {
+  const [isModal, setIsModal] = useState(false)
+
   return (
     <HeroMain>
       <ContainerHero className='container'>
         <Box>
           <Title>Консультация врача в любое время и в любом месте по звонку</Title>
           <Subtitle>Педиатра, теравевта, невролога, аллерголога, гастроэнтеролога и других высококласных врачей</Subtitle>
-          <Button>Записаться онлайн</Button>
+          <Button onClick={() => setIsModal(true)}>Записаться онлайн</Button>
         </Box>
         <BlurFon />
         <ImageWrapper>
           <HeroImage src={heroImg} alt='hero image' />
         </ImageWrapper>
       </ContainerHero>
-      <Modal />
+      {isModal && <Modal setIsModal={setIsModal} signUp={'Записаться онлайн'} />}
     </HeroMain>
   )
 }
@@ -67,7 +70,7 @@ const Button = styled.button`
 
 const ImageWrapper = styled.div`
   display: flex;
-  z-index: 100;
+  z-index: 10;
 `
 
 const HeroImage = styled.img`

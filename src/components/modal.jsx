@@ -2,56 +2,59 @@ import { useState } from "react";
 import { styled } from "styled-components"
 import { close } from "../assets"
 
-const Modal = () => {
+const Modal = ({setIsModal, signUp}) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const handleInput = e => {
-    const formattedPhoneNum = formatPhoneNum(e.target.value)
-    setPhoneNumber(formattedPhoneNum)
-  }
-
-  function formatPhoneNum(value) {
-    if(!value) return value
-    const phoneNum = value.replace(/[^\d]/g, '')
-    const phoneNumLength = phoneNum.length
-    if(phoneNumLength < 4) return phoneNum
-    if(phoneNumLength < 7) {
-      return `(${phoneNum.slice(0, 3)}) ${phoneNum.slice(3)}`
-    }
-    return `(${phoneNum.slice(0, 3)}) ${phoneNum.slice(3, 6)}-${phoneNum.slice(6, 10)}`
+    const formatedPhoneNum = formatPhoneNum(e.target.value)
+    setPhoneNumber(formatedPhoneNum)
   }
 
   return (
     <ModalBg>
       <Container>
         <HeaderCon>
-          <Title>Записаться онлайн</Title>
-          <img src={close} alt="close" />
+          <Title>{signUp ? signUp : 'Обратный звонок'}</Title>
+          <img src={close} alt="close" onClick={() => setIsModal(false)} style={{cursor: 'pointer'}} />
         </HeaderCon>
         <Form>
           <BoxInput>
             <Label htmlFor="name">ФИО</Label>
-            <Input type="text" id="name" placeholder="Укажите ФИО" />
+            <Input type="text" id="name" placeholder="Укажите ФИО" required />
           </BoxInput>
-          <BoxInput>
+          <BoxInput style={{position: 'relative', marginBottom: `${signUp ? '' : '30px'}`}}>
             <Label htmlFor="phone">Телефон</Label>
-            <Input type="text" id="phone"  placeholder='(90) 123-45-67' value={phoneNumber} onChange={e => handleInput(e)} />
+            <Input type="text" id="phone"  placeholder='(90) 123-45-67' value={phoneNumber} onChange={e => handleInput(e)} style={{paddingLeft: '58px'}} required />
             <CountCode>+998</CountCode>
           </BoxInput>
-          <Box>
+          {signUp && <Box>
             <BoxInput>
               <Label htmlFor="date">Дата</Label>
-              <Input type="date" id="date" placeholder="Выберите дату" />
+              <Input type="date" id="date" placeholder="Выберите дату" required />
             </BoxInput>
             <BoxInput>
               <Label htmlFor="time">Время</Label>
-              <Input type="number" id="time" placeholder="Выберите время" />
+              <Input type="text" id="time" placeholder="Выберите время" required />
             </BoxInput>
-          </Box>
+          </Box>}
           <Button>Необходимо заполнить поля</Button>
         </Form>
       </Container>
     </ModalBg>
   )
+}
+
+function formatPhoneNum(value) {
+  const phoneNum = value.replace(/[^\d]/g, '')
+
+  if (phoneNum.length <= 2) {
+    return phoneNum
+  } else if (phoneNum.length <= 5) {
+    return `(${phoneNum.slice(0, 2)}) ${phoneNum.slice(2)}`
+  } else if (phoneNum.length <= 7) {
+    return `(${phoneNum.slice(0, 2)}) ${phoneNum.slice(2, 5)}-${phoneNum.slice(5, 7)}`
+  } else {
+    return `(${phoneNum.slice(0, 2)}) ${phoneNum.slice(2, 5)}-${phoneNum.slice(5, 7)}-${phoneNum.slice(7, 9)}`
+  }
 }
 
 const ModalBg = styled.div`
@@ -69,7 +72,6 @@ const ModalBg = styled.div`
 
 const Container = styled.div`
   width: 496px;
-  height: 452px;
   background-color: ${({theme}) => theme.bgSecondary};
   border-radius: 24px;
 `
@@ -115,11 +117,12 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-  position: relative;
   padding: 14px 16px;
   border: none;
   border-radius: 14px;
   background-color: ${({theme}) => theme.bgPrimary};
+  font-size: 15px;
+  color: ${({theme}) => theme.textPrimary};
 
   &::placeholder {
     color: #D9D5D5;
@@ -129,8 +132,10 @@ const Input = styled.input`
 
 const CountCode = styled.span`
   position: absolute;
-  top: 14px;
+  top: 38px;
   left: 16px;
+  font-size: 15px;
+  color: ${({theme}) => theme.darkMode ? theme.textPrimary : '#273140'};
 `
 
 const Button = styled.button`
