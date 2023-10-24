@@ -3,7 +3,7 @@ import { styled } from "styled-components"
 
 const BlogCard = ({blog}) => {
   return (
-    <Link to={`/blog-detailed`} style={{textDecoration: 'none'}}>
+    <Link to={`/blog-detailed/${blog.id}`} style={{textDecoration: 'none'}}>
       <Container>
         <Image src={blog.img} />
         <div>
@@ -21,6 +21,8 @@ const Container = styled.div`
 `
 
 const Image = styled.img`
+  max-width: 183px;
+  width: 100;
   border-radius: 16px;
   margin-right: 20px;
 `

@@ -1,16 +1,19 @@
+import { useParams } from "react-router-dom"
 import { styled } from "styled-components"
 import BlogCard from "../components/blog-card"
 import MainBlogCard from "../components/main-blog-card"
 import { blogs } from "../constants/blogs"
 
 const BlogDetailed = () => {
-  const filteredBlog = blogs.filter(blog => blog.id > 1)
+  const {id} = useParams()
+  const filteredBlog = blogs.filter(blog => blog.id != id)
+
   return (
     <DetailedBg>
       <div className="container">
         <Routes>Home/Blog-Detailed</Routes>
         {blogs.map(blog => (
-          blog.id === 1 && <MainBlogCard blog={blog} key={blog.id} imageHeight='480px' titleSize='31px' content={true} />
+          blog.id == id && <MainBlogCard blog={blog} key={blog.id} imageHeight='480px' titleSize='31px' content={true} />
         ))}
       </div>
       <CardWrapperBg>

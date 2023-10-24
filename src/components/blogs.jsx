@@ -34,7 +34,7 @@ const Title = styled.h2`
 
 const BlogsContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
   gap: 20px;
   padding-bottom: 64px;
 `

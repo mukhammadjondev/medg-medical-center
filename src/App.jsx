@@ -21,7 +21,7 @@ function App() {
         <Navbar toggleMode={toggleMode} />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/blog-detailed" element={<BlogDetailed />} />
+          <Route path="/blog-detailed/:id" element={<BlogDetailed />} />
         </Routes>
         <Footer />
       </Router>
