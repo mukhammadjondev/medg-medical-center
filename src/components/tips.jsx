@@ -6,18 +6,16 @@ const Tips = () => {
   return (
     <TipsBg>
       <Container className="container">
-        <div style={{width: '68%'}}>
+        <div>
           <TitleMain className="title">Возьмите под контроль свое здоровье</TitleMain>
-          <Container>
-            <Box>
-              {tips.map(item => (
-                <div key={item.id}>
-                  <Title>{item.title}</Title>
-                  <Description>{item.description}</Description>
-                </div>
-              ))}
-            </Box>
-          </Container>
+          <Box>
+            {tips.map(item => (
+              <div key={item.id}>
+                <Title>{item.title}</Title>
+                <Description>{item.description}</Description>
+              </div>
+            ))}
+          </Box>
         </div>
         <ImageWrapper>
           <ImageBox1>
@@ -41,7 +39,8 @@ const TitleMain = styled.h2`
 `
 
 const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 70% auto;
 `
 
 const Box = styled.div`
@@ -68,14 +67,17 @@ const ImageWrapper = styled.div`
 `
 
 const ImageBox1 = styled.div`
-  width: 268px;
+  max-width: 268px;
+  width: 100%;
   position: relative;
   z-index: 10;
 `
 
 const ImageBox2 = styled.div`
+  max-width: 247px;
+  width: 100%;
   position: absolute;
-  right: -116px;
+  right: -35px;
   top: 20px;
 `
 

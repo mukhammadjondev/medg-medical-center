@@ -37,6 +37,10 @@ const BlogsContainer = styled.div`
   grid-template-columns: 50% 50%;
   gap: 20px;
   padding-bottom: 64px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: auto;
+  }
 `
 
 const BlogCardWrapper = styled.div`

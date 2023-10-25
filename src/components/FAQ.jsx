@@ -61,9 +61,15 @@ const ItemBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  img {
+    width: 31px;
+    height: 31px;
+  }
 `
 
 const Question = styled.p`
+  width: 95%;
   color: ${({ $clicked, theme }) => ($clicked ? theme.main : theme.textPrimary)};
   font-size: 17px;
   font-weight: 500;

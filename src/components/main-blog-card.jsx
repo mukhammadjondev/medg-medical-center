@@ -3,7 +3,7 @@ import { styled } from "styled-components"
 
 const MainBlogCard = ({blog, imageHeight = 'auto', titleSize, content}) => {
   return (
-    <Link to={`/blog-detailed`} style={{textDecoration: 'none', cursor: 'pointer'}}>
+    <Link to={`/blog-detailed/${blog.id}`} style={{textDecoration: 'none', cursor: 'pointer'}}>
       <Image src={blog.img} height={imageHeight} />
       <Title $titleSize={titleSize}>{blog.title}</Title>
       {content ? (

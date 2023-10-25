@@ -78,14 +78,16 @@ const HeroImage = styled.img`
 `
 
 const BlurFon = styled.div`
-  display: inline-block;
+  display: flex;
   position: absolute;
-  width: 550px;
-  height: 535px;
+  max-width: 45%;
+  max-height: 90%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background-color: ${({theme}) => theme.blurFon ? theme.blurFon : '#FFF'};
   filter: blur(40px);
-  right: -10px;
+  right: 0px;
   top: 70px;
 `
 

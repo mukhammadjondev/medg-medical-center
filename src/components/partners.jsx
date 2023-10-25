@@ -25,11 +25,16 @@ const Title = styled.h2`
 `
 
 const ImageContainer = styled.div`
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin-bottom: 64px;
+  padding-bottom: 64px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: auto auto;
+  }
 `
 
 export default Partners

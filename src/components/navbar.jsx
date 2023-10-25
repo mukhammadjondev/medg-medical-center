@@ -22,7 +22,7 @@ const Navbar = ({toggleMode}) => {
             <small style={{color: '#bcbcbc'}}>контактный центр</small>
           </PhoneNum>
           <ModeBtn onClick={toggleMode}>
-            <img src={localStorage.getItem('mode') === 'light' ? darkMode : lightMode} alt="mode" />
+            <img src={localStorage.getItem('mode') === 'dark' ? lightMode : darkMode} alt="mode" />
           </ModeBtn>
           <LanguageBtn>
             <img src={ruFlag} alt="Russia flag" style={{marginRight: '8px'}} />
